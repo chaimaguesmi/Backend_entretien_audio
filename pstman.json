@@ -1,0 +1,158 @@
+{
+  "info": {
+    "_postman_id": "b63a8f16-77f7-4b5b-88ab-45aeb8b2d9ea",
+    "name": "Career Audio API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Conversation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"candidate_id\": \"12345\",\n    \"job_title\": \"Software Engineer\",\n    \"company_name\": \"Acme Corp\",\n    \"sender\": \"bot\",\n    \"file_name\": \"audio.mp3\",\n    \"file_size\": 54321,\n    \"duration\": 12.3,\n    \"format\": \"mp3\",\n    \"content\": \"Welcome to the interview\",\n    \"audio_url\": \"https://cdn.example.com/audio.mp3\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/audio-messages",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["audio-messages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Message to Existing Conversation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"conversation_id\": \"6877a19b5bee78e2109c67f7\",\n    \"candidate_id\": \"12345\",\n    \"job_title\": \"Software Engineer\",\n    \"company_name\": \"Acme Corp\",\n    \"sender\": \"bot\",\n    \"file_name\": \"audio2.mp3\",\n    \"file_size\": 12345,\n    \"duration\": 5.8,\n    \"format\": \"mp3\",\n    \"content\": \"Second message\",\n    \"audio_url\": \"https://cdn.example.com/audio2.mp3\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/audio-messages",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["audio-messages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Audio Messages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/audio-messages",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["audio-messages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Messages Filtered by Candidate ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/audio-messages?candidate_id=12345",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["audio-messages"],
+          "query": [
+            {
+              "key": "candidate_id",
+              "value": "12345"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Messages Filtered by Conversation ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/audio-messages?conversation_id=6877a19b5bee78e2109c67f7",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["audio-messages"],
+          "query": [
+            {
+              "key": "conversation_id",
+              "value": "6877a19b5bee78e2109c67f7"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Messages Filtered by Sender",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/audio-messages?sender=bot",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["audio-messages"],
+          "query": [
+            {
+              "key": "sender",
+              "value": "bot"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Audio Message",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/audio-messages/6877a19b5bee78e2109c67f7/6877a19b5bee78e2109c67f6",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": [
+            "audio-messages",
+            "6877a19b5bee78e2109c67f7",
+            "6877a19b5bee78e2109c67f6"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
